@@ -49,7 +49,7 @@ public class GhoulBoss extends PathfinderMob {
         goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 18.0F));
         goalSelector.addGoal(8, new RandomLookAroundGoal(this));
         targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, 32, true, false, Player::isAlive));
+        targetSelector.addGoal(2, new NearestAttackableTargetGoal<Player>(this, Player.class, 32, true, false, entity -> entity.isAlive()));
     }
 
     @Override public void tick() {
@@ -158,7 +158,7 @@ public class GhoulBoss extends PathfinderMob {
 
     @Override protected net.minecraft.sounds.SoundEvent getAmbientSound() { return SoundEvents.WARDEN_AMBIENT; }
     @Override protected float getSoundVolume() { return 1.2F; }
-    @Override protected float getVoicePitch() { return 0.55F; }
+    protected float getVoicePitch() { return 0.55F; }
     @Override public boolean isPersistenceRequired() { return true; }
     @Override public boolean removeWhenFarAway(double distanceToClosestPlayer) { return false; }
 }
