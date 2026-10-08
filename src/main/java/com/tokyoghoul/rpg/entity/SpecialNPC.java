@@ -20,7 +20,7 @@ case "ccg_heavy" -> {setItemSlot(EquipmentSlot.MAINHAND,new ItemStack(ModItems.Q
 case "ccg_sniper" -> {setItemSlot(EquipmentSlot.MAINHAND,new ItemStack(ModItems.QUINQUE_CANNON.get()));if(tickCount%35==0){Player p=level().getNearestPlayer(this,20);if(p!=null&&p.isAlive()){p.hurt(level().damageSources().mobAttack(this),10f);if(level() instanceof net.minecraft.server.level.ServerLevel sl)sl.sendParticles(net.minecraft.core.particles.ParticleTypes.CRIT,p.getX(),p.getY()+1,p.getZ(),8,.1,.1,.1,.04);}}}
 case "ghoul_scavenger" -> addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED,25,1,true,false,false));
 case "ghoul_medic" -> {if(tickCount%30==0){heal(1.5f);for(LivingEntity ally:level().getEntitiesOfClass(LivingEntity.class,getBoundingBox().inflate(5),x->x!=this&&x.isAlive()&&!(x instanceof Player)))ally.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.REGENERATION,35,0,true,false,false));}}
-default -> {};} }
+default -> {} } }
  @Override public boolean isPersistenceRequired(){return true;}
  @Override public boolean removeWhenFarAway(double d){return false;}
  @Override protected net.minecraft.sounds.SoundEvent getAmbientSound(){return SoundEvents.VILLAGER_AMBIENT;}
