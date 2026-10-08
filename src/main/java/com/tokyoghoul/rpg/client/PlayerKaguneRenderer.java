@@ -30,17 +30,17 @@ public final class PlayerKaguneRenderer {
     // Animation-only impulses. They never affect damage, cooldowns or movement.
     // [0] attack, [1] ability, [2] rage, [3] hit reaction, [4] transition, [5] previous attack, [6] last decay tick
     private static float[] animationState(UUID id) {
-        return ANIMATION_STATE.computeIfAbsent(id, k -> new float[6]);
+        return ANIMATION_STATE.computeIfAbsent(id, k -> new float[7]);
     }
     public static void triggerAttack() {
         if (Minecraft.getInstance().player == null) return;
         animationState(Minecraft.getInstance().player.getUUID())[0] = 1f;
-        spawnAttackBurst(Minecraft.getInstance().player, currentType(), false);
+        spawnAttackBurst(Minecraft.getInstance().player, type(), false);
     }
     public static void triggerAbility() {
         if (Minecraft.getInstance().player == null) return;
         animationState(Minecraft.getInstance().player.getUUID())[1] = 1f;
-        spawnAttackBurst(Minecraft.getInstance().player, currentType(), true);
+        spawnAttackBurst(Minecraft.getInstance().player, type(), true);
     }
     public static void triggerRage() {
         if (Minecraft.getInstance().player == null) return;
