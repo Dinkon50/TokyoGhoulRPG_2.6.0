@@ -1,5 +1,17 @@
 package com.tokyoghoul.rpg.world;
-import com.tokyoghoul.rpg.entity.ModEntities; import net.minecraft.core.BlockPos; import net.minecraft.server.level.ServerLevel; import net.minecraft.server.level.ServerPlayer; import net.minecraft.world.entity.Entity; import net.minecraft.world.level.Heightmap; import net.minecraft.world.level.block.Blocks; import net.minecraft.world.level.block.ChestBlock; import net.minecraft.world.level.block.entity.ChestBlockEntity; import net.minecraft.world.item.ItemStack; import net.minecraft.world.item.Items; import com.tokyoghoul.rpg.init.ModItems; import java.util.*;
+import com.tokyoghoul.rpg.entity.ModEntities;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ChestBlock;
+import net.minecraft.world.level.block.entity.ChestBlockEntity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import com.tokyoghoul.rpg.init.ModItems;
+import java.util.*;
 public final class RareLocations {
  private static final String ID="tokyoghoulrpg_rare_locations"; private RareLocations(){}
  private static RareLocationData data(ServerLevel l){return l.getDataStorage().computeIfAbsent(new net.minecraft.world.level.saveddata.SavedData.Factory<>(RareLocationData::new,RareLocationData::load,null),ID);}
